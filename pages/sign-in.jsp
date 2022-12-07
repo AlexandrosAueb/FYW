@@ -28,8 +28,15 @@
                   </div>
                 </div>
               </div>
+
+
               <div class="card-body">
-                <form role="form" class="text-start">
+
+                <% if(request.getAttribute("message") != null) { %>		
+                  <div class="alert alert-danger text-center" role="alert"><%=(String)request.getAttribute("message") %></div>
+                <% } %>
+
+                <form role="form" class="text-start" method="post" action="sign-in-controller.jsp">
                   <div class="input-group input-group-outline my-3">
                     <label class="form-label">Name</label>
                     <input type="Name" class="form-control">
@@ -43,10 +50,7 @@
                     <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember me</label>
                   </div>
                   <div class="row">
-                    <div class="mx-3">
-                      <a class="btn bg-gradient-primary w-30 my-4 mb-2" href="../pages/dashboard.jsp" type="button" style=" margin: 40px">Sign in as admin</a>
-                      <a class="btn bg-gradient-primary w-30 my-4 mb-2" href="../pages/orders-delivery.jsp" type="button" style=" margin: 40px">Sign in as delivery</a>
-                    </div>
+                      <button class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0" type="submit">Sign in</button>
                   </div>
                 </form>
               </div>

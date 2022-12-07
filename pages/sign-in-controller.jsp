@@ -11,6 +11,7 @@ EmployeeDAO dao = new EmployeeDAO();
 try {
     Employee employee = dao.authenticate(username, password);
     session.setAttribute("emplObj2022", employee);
+    out.println("mpainei edw naiiii");
 
 
     if (employee.getRole().equals("admin")) {
@@ -24,7 +25,7 @@ try {
 } catch (Exception e) {
     request.setAttribute("message", e.getMessage());
     %>
-    <jsp:forward page="/pages/sign-in.jsp"/>
+    <!--<jsp:forward page="sign-in.jsp"/>-->
 
 <%    
 }
