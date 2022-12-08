@@ -29,28 +29,29 @@
                 </div>
               </div>
 
-
               <div class="card-body">
+  
+            <% if(request.getAttribute("message") != null) { %>		
+              <div class="alert alert-danger text-center" role="alert" style="color:#fff"><%=(String)request.getAttribute("message") %></div>
+            <% } %>
 
-                <% if(request.getAttribute("message") != null) { %>		
-                  <div class="alert alert-danger text-center" role="alert"><%=(String)request.getAttribute("message") %></div>
-                <% } %>
-
-                <form role="form" class="text-start" method="post" action="sign-in-controller.jsp">
+                <form role="form" class="text-start" method="POST" action="sign-in-controller.jsp">
                   <div class="input-group input-group-outline my-3">
-                    <label class="form-label">Name</label>
-                    <input type="Name" class="form-control">
+                    <label for="inputusername" class="form-label">Username</label> 
+                  <input type="text" name="username"  class="form-control" required>
                   </div>
                   <div class="input-group input-group-outline mb-3">
-                    <label class="form-label">Password</label>
-                    <input type="password" class="form-control">
+                    <label for="inputpassword" class="form-label">Password</label>
+                    <input name="password" type="password"  class="form-control" required>
                   </div>
                   <div class="form-check form-switch d-flex align-items-center mb-3">
                     <input class="form-check-input" type="checkbox" id="rememberMe" checked>
                     <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember me</label>
                   </div>
                   <div class="row">
-                      <button class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0" type="submit">Sign in</button>
+                    <div class="mx-1 text-center">
+                      <button class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0" style="height:50px;width:250px" type="submit">Sign in</button>
+                    </div>
                   </div>
                 </form>
               </div>

@@ -5708,7 +5708,7 @@ fieldset:disabled .btn {
   position: relative;
   padding: var(--bs-alert-padding-y) var(--bs-alert-padding-x);
   margin-bottom: var(--bs-alert-margin-bottom);
-  color: var(--bs-alert-color);
+  color: #ffffff;
   background-color: var(--bs-alert-bg);
   border: var(--bs-alert-border);
   border-radius: var(--bs-alert-border-radius);
@@ -5788,6 +5788,7 @@ fieldset:disabled .btn {
   --bs-alert-color: #922820;
   --bs-alert-bg: #fdd9d7;
   --bs-alert-border-color: #fcc7c2;
+
 }
 
 .alert-danger .alert-link {

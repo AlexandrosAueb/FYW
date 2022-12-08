@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page errorPage="error.jsp"%>
 
+<%
+if (session.getAttribute("deliveryObj") == null) {
+	request.setAttribute("message", "You are not authorized to access this resource. Please login.");
+%>
+  <jsp:forward page="../pages/sign-in.jsp"/>
+<%    
+}
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,7 +81,7 @@
         </div>
         <div class="sidenav-footer position-absolute w-100 bottom-0 ">
             <div class="mx-3">
-                <a class="btn bg-gradient-primary mt-4 w-100" href="../pages/sign-in.jsp" type="button">Sign out</a>
+                <a class="btn bg-gradient-primary mt-4 w-100" href="../pages/sign-out.jsp" type="button">Sign out</a>
             </div>
         </div>
     </aside>
