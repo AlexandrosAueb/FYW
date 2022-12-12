@@ -3,7 +3,8 @@ package fyw;
 public class Employee {
     
     private int id;
-    private String name;
+    private String firstname;
+    private String lastname;
 	private String email;
     private String role;
 	private String username;
@@ -13,15 +14,17 @@ public class Employee {
      * Full constuctor
      * 
      * @param id
-     * @param name
+     * @param firstname
+     * @param lastname
      * @param email
      * @param role
      * @param username
      * @param password
      */
-    public Employee(int id, String name, String email, String role, String username, String password) {        
+    public Employee(int id, String firstname, String lastname, String email, String role, String username, String password) {        
         this.id = id;
-        this.name = name;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.email = email;
         this.role = role;
         this.username = username;
@@ -36,12 +39,20 @@ public class Employee {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getEmail() {
