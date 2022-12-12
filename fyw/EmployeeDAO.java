@@ -249,4 +249,70 @@ public class EmployeeDAO {
 
 	}// end of register
 
+
+
+	public double average_time(Employee emp) throws Exception {
+        double avg = 0;
+        DB db = new DB();
+        String sql = "select avg(Estimated_time) from Orders, Employees where employees.employees_ID = Orders.employees_ID and Orders.employees_ID = ?;";
+
+        try {
+            PreparedStatement prepareStatement = db.getConnection().prepareStatement(sql);
+            prepareStatement.setDouble(1, emp.getId());
+            ResultSet rs = prepareStatement.executeQuery();
+
+            while (rs.next()) {
+                avg = (rs.getDouble(1));
+
+
+            }
+
+            rs.close();
+            prepareStatement.close();
+            db.close();
+        }
+        catch (Exception ex) {
+            throw new Exception(ex.getMessage());
+        }
+        finally {
+            try {
+                db.close();
+            }
+            catch (Exception ex2) {}
+        }
+        return avg ;
+    }
+
+
+    public double count(Employee emp) throws Exception {
+        int c = 0;
+        final DB db = new DB();
+        final String sql = "select count(Estimated_time) from Orders, Employees where employees.employees_ID = Orders.employees_ID and Orders.employees_ID = ?;";
+
+        try {
+            PreparedStatement prepareStatement = db.getConnection().prepareStatement(sql);
+            prepareStatement.setInt(1, emp.getId());
+            ResultSet executeQuery = prepareStatement.executeQuery();
+
+            while (executeQuery.next()) {
+              c = executeQuery.getInt(1);
+
+            }
+
+            executeQuery.close();
+            prepareStatement.close();
+            db.close();
+        }
+        catch (Exception ex) {
+            throw new Exception(ex.getMessage());
+        }
+        finally {
+            try {
+                db.close();
+            }
+            catch (Exception ex2) {}
+        }
+        return c ;
+    }
+
 } // End of class
