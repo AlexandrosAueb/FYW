@@ -174,10 +174,6 @@ if (session.getAttribute("adminObj") == null) {
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="https://icons.iconarchive.com/icons/icons8/windows-8/128/Mobile-Phone-icon.png"
-                              class="avatar avatar-sm me-3 border-radius-lg" alt="telephone">
-                          </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm">6</h6>
                           </div>
@@ -209,10 +205,6 @@ if (session.getAttribute("adminObj") == null) {
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="https://cdn-icons-png.flaticon.com/128/3059/3059484.png"
-                              class="avatar avatar-sm me-3 border-radius-lg" alt="telephone">
-                          </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm"> 5 </h6>
                           </div>
@@ -243,10 +235,6 @@ if (session.getAttribute("adminObj") == null) {
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="https://icons.iconarchive.com/icons/icons8/windows-8/128/Mobile-Phone-icon.png"
-                              class="avatar avatar-sm me-3 border-radius-lg" alt="telephone">
-                          </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm">4</h6>
                           </div>
@@ -278,13 +266,8 @@ if (session.getAttribute("adminObj") == null) {
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
-                          <div>
-                            <img
-                              src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAIoAigMBEQACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABgcBBAUDAv/EAEEQAAEDAwEDBwgHBgcAAAAAAAEAAgMEBREGEiExBxMiQYGRsRVCUWFxocHRFCMyUoKS8BclctLh8RYzQ1Ric7L/xAAaAQEAAgMBAAAAAAAAAAAAAAAABAYCAwUB/8QANREAAQMDAwEECAUFAQAAAAAAAAECAwQFERIhMVETIjJBFBVhcYGRofAjQlKxwRYlMzViBv/aAAwDAQACEQMRAD8AvFAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAYygGV4BlegygCAIAgCAIAgCAIAgCAIDCA166upqCndUVczIom8XPOF45yNTKmccb5HI1iZUg145R2tc6K0U22eAlnBA7G/2UV9UieE71NYXu3mXBGZtU6iuLzzdXP8Aw0zMAd2/3rR2sruDppbaCHx/VT5xqo9P967uvpr3Mx7i2cbGWai1JbXDnauqZg/ZqGZHvXnaStC0Nvn8OPgd+08o8zS1l2pWuaeMsG4j8J+C2sqvJyHPqLBtmFxPLVdaK6wCagnbKzrxuLfaOpS2uRybHAmgkgdpkTCm8sjSEAQBAEAQBAEAQBAcfUl/prDRmafpSO3RRDi8/L1rXJIjEypLo6OSqk0t4Krllu+r7qAGmaTOWxg4jhb8B61BVXzO24LY1tLbYcrz9VJtZtBW2hjbNdXCplAy4OOI29nX2qSyna3k4NTeJ5l0x7Ibk+rdN2lvM08sbtndsUsWQO0blkssbNsmiO3Vk+6p8zS/aRbMgCkqyPY35rH0lpJ9Q1OM7G3Ta209XjmqiQxbW7ZqIuj37wskmjcaJLVWQ7onyPi56Lst2g5+3bFM9wy18GCx3tHDuwvHwsemxlBdammXS/dOikCq6K76RubZAXRPB+rmYcslHo9nqKiq18SlhjmpblHpXksnSOqIb9Bzb8R1sYHOR9R9bfV4KZFKj0KxX299I/8A5JGtxzwgCAIAgCAIAgNa4VcNDSS1VQ4NiibtOK8cuEypnHG6R6MbypTk0tw1fqBoaDzkpwxvmws/oO8rnZWZ+C6NbFbaXK8/upZDG2vRVk2nfidjpzP/AF3KZ3ImlYzPcZ/vYrq73y7anqxAxryx5+rpYeHb6faVDdI+RcIWWChpqGPVJz7TtWvk5q52tfc6ttOCP8qMbTh28AtjaVfzEKe/tTaFuTsjk2tOxg1VaXenab/KtnorCF6+qc8Icy5cm8jGl9trucI4RztwT+IfJYOpOikqC/rnErfkRumq7zpOv2MPgd50L97Hj4+0LUjnxLudJ8NJcY8pz9Sx7ZcbZrK0SQTxt2sYmhPGM+kHwKmsc2VpWJoJ7fNlPmV3daCu0nfWmF5BYduCXG57c8D4FQnNWF+ULNTzRXKnVruS19P3aK82uGsiwC4YkZ9x44hT2PR7clQqqd1PKsbvI6azNAQBAEAQBAEBXvKndC1tPaonfb+tmAPUD0R357lEqn4TBYbDTanrMvkbnJxaW0NoNznAEtSMhx82McO/eVlTxo1uo0XiqWafs28IQzUN0qdT30Mp9p8ZfzVNH6vT28VGlesjtKHbooGUNN2j+eSwbVbLbo6zvqKp7BIG5mnI3uP3R8ApjWNiaVuoqJ6+bS34IQ6968uddKYrcfokOcNLRmR3b1dijPqXLs07dNZYY26p91+hzMankAnHldw47eZFh+NySv7a3u9027VrS82yYMq5H1UbT0o5/tD2Hj3rJk72rhxqntFNO3VDt7ienyTrSzZGHdWfPhf+u9S+5K0ruZ7dP97lbMNdpHUI485A7f6JWH5hQd4XloVIrlS/exYeqaGDUmmRVUw2pGx8/A4ceG9vbwU2RqSMK3QzOo6rC9cKRXkxuhprpJb5HYiqW5bnqePmPBR6Z+F0nXvtOj40mb5FqBTiqhAEAQBAEBg8EBTGsZXXHVtXGDk862BnqxgeJK50velwXS2okFBr96k+1pMLTo6SCDobTGU7MdQOAfcCpcq6Y9iu26Pt6xFXrkjXJbbWzV9TcHt3QARxnHnOzn3eK0UjeXKda/1Co1sSe81eUa7yV15NBEXczSHZLR50h4/Ad6wqHqrtKG2y0zYoVmdyv7Eu0bpSntNJHU1UTZK6Ru05zhnm89Q+akxRIxPaca43F9TIqIvdQlW5bzlnC1NpqjvtK4PY2OqaDzcwG8H0H1LVJEj0JtHXSUz0VF26FbaWuE+ntRtiny1j5eYqGdXHAPYd6hxPWN+FLNcYWVlL2reeUJVypW5r6KmuTB04nc28jra7h7/Fb6puW5OVYp1bMsfU9uS+tNRZp6R+/wCjS9Hf5rt/jle0zstwa75CkdQj08yE1DfIusTzfRFPXBwH/Euz4FRV7kx3Gr6Tbt+hdbDloI4FdMpPB9IAgCAIAgMFAUsN+uOnu/eO/wDOucv+Yuqf6zb9JM+VUnyLSjq+k7/ylSanwHFsOPScr0M8lQAsVSR9o1Rz+VqxpfAL8q+kp7iEgCTWmKgDBuXTz/2f2Ufmbc7fht3d/SXUF0ikkQ1zT3mCLyhZ62oa1gxLTxnq+8B4rRMj0TLTq2x1MruznTnzIN5d1N/u7h+Q/JRO0mLD6HbuiHMqG19TO+eeKokmecue6I5J9J3LWqPVcqTGOp2M7Nqpg3Ku5X2tpzT1ctbNCSMscw43bx1LNXSOTCmiOGiiej2YRTxoKm720vNAauDnMbexGRtY4dXrWLVkbwZzMo595FRTxqRX1dS6oqYqiWZ5Bc90ZyfbuXuHudlT3VTxwrGxURC+KbP0eLPHYHgumnBQn+JT1XpiEAQBAEBgoCl9UMdbdYVUmMbFQJm+zcVzZE0yl0oVSe36fZgnuv6cXDSck8PS5ssnb/D1+4qXOmqPYr9qk7GrRF9xwuSuvayatoHuwZMSxj0kbnfBaqR/5To/+gg3bKhx9fW2S2aifUsGI6l3PRu6g7rHfv7VrnbpfqJlnnbPTdivKbFh6V1BBfKBrg5raljQJoyd4PpHqKmRSI9uSt11G+mkVFTbyO6cFbCEeb5YmSMjdI1r3/ZaXb3exebHqIqplD0XpiMIejCYAxlAAgMoAgCAIAgCArblUtpbUU1zY3LXDmZT6Dxb8QoVUzhyFlsFT4oV+B2dB3GK7ac+gVBD307eZe13nM6j3buxboHo9mCBdKd1NVa28LuQKup6vSWohzWQ+B23C7qkYf1gqG5FikLDC+O40mleSyP3ZrWxYJ4j8cL/ANd6nd2VpWPx7dP97le3PTl60/U89CyZzGnLammz78bx2qG6J8a5aWSG4UlY3TJz0Uw3WmoGM5rygcjd0mNLvBedvJwPVNEq6v5M22h1HfbjHVRGpdKx2RUzZDWewnwC9Y2V7smNRLQU0SsTG/kXDTCRsEbZ3B8oaA9zRgE9ZXQ3Kc5UVcpwey9PAgCAIAgCAIAgCAIDRvNthutunoqgdCVuM/dPUewrFzUcmFN0EzoZEkbyhUNBVVukb+RIwh8TtmaPgJW+rxC57VWF+5cZo47lS5byWNdLfbtY2aOaCQbWMwzAb4z1g/EKY5rZWlYgnmt8+FT3oVw5l50lc89OnkG4OG+OUfFQu/C4tCLS3KL72Jfa+UelewMulK+J+N74um09nEKSyqauynFnsUzVzEuUOsNYaYcNs1DM8elTuz4LPto+pD9WVqLjT9Tn3HlFtsLC23U8tS7qLm820d+/3LFalqJsSobHUPX8RcEWp9Q6hu19gqKTbkmY7oQR/YDTxBHo9ZWhsr3v2OnNb6Omp1a9fiW7C57o2mRoa8gbTQc4K6BUFxnY9EAQBAEAQBAEAQBAEBHNX6Yhv1OHx7MVZGPq5McR90+paZYkkQ6Fvr30j+rSt7dcrtpK5OiLHMOcSU8mdl49I+YUNrnwrhSzTU9PcotbV36lg2/Udi1JTCnrBEyR3GnqccfUeB7FMbKyRNytzUNVRu1Jn3oaVfydWyoJdRVEtLnzRh7ff81g6mYvBIhvtTHs7c5v7M5s4F0j2fXAf5lh6L7SX/UO3gN6h5N6GJwdW1s1RjzWDmwfErJtK1OSNLfp3bMTB1Ki5ae0pTmGLmY3j/RhAdI72/1WxXxxoRGU9XXPyuV9qkUj13dKq+wPhgJpS7Y+iMG054PXn0+5aEqHK/ZDrSWaKKmVXO73UtBjtpjXYIyM4PEKaVjGD6QBAEAQBAEAQBAEBjCA515slBeIOaroGvI+zINzmewrB7EemFN9PUy07tUale3fk8uFMXPtsjKuLiGuw14+BUN9KqeEsdPfY3JpmTBxmT6lsp2Nq40wHmuDi335C15mZ1Jqst1Tvse3+NNRgbPlB3bCzP8A5XvbTGv1Xb13/k8pLnqW7dAT3CcO82FrgD+UBNUzjNILdBvsdG1aBu9a4PrdmjjPEvO089nzWbKZy7uI897p4k0wpksCwaZt1kZmmi25yOlPJvcfkpTI2s4K5VV01SuXrsdobgtpEMoAgCAIAgCAIAgCAIAgMYQGC0EYIBCA+DTwk5MUef4QvMIZa3dT7axrRhoA9gXp4qqvJnCHhlAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAf/9k="
-                              class="avatar avatar-sm me-3 border-radius-lg" alt="telephone">
-                          </div>
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">3</h6>
+                            <h6 class="mb-0 text-sm" >3</h6>
                           </div>
                         </div>
                       </td>
@@ -450,10 +433,6 @@ if (session.getAttribute("adminObj") == null) {
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="https://icons.iconarchive.com/icons/icons8/windows-8/128/Mobile-Phone-icon.png"
-                              class="avatar avatar-sm me-3 border-radius-lg" alt="telephone">
-                          </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm">2</h6>
                           </div>
@@ -488,10 +467,6 @@ if (session.getAttribute("adminObj") == null) {
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="https://cdn-icons-png.flaticon.com/128/3059/3059484.png"
-                              class="avatar avatar-sm me-3 border-radius-lg" alt="telephone">
-                          </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm"> 1 </h6>
                           </div>

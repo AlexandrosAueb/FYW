@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page errorPage="error.jsp"%>
 <%@ page import="fyw.*" %>
@@ -78,79 +79,57 @@
 			
 			<div class="container">
     			<% 
-    			String name = request.getParameter("Name");
-    			String surname = request.getParameter("Surname");
-				String email = request.getParameter("Email");
-				String username = request.getParameter("Username");
-				String password = request.getParameter("Password");
-				String confirm = request.getParameter("Confirm");
-				String terms = request.getParameter("Terms");
+    			String name = request.getParameter("firstname");
+    			String surname = request.getParameter("lastname");
+				String email = request.getParameter("email");
+				String username = request.getParameter("username");
+				String password = request.getParameter("password");
+				String confirm = request.getParameter("confirm");
+				String terms = request.getParameter("terms");
 
-				if (!(name.length() >= 3) || !(surname.length() >= 3) || !(username.length() >= 5) || !(password.length() >= 6) || (!(confirm.equals(password))) || (terms == null)) {
-    			%>
-					<div class="page-header">
-                    	<h1>Registration forms has errors</h1>
-                	</div>
-    				<div class="alert alert-danger">
-						<ol>
-							<% if (!(name.length() >= 3)) { %>
-								<li>Name must be at least 3 characters long</li>
-							<% } 
-							if (!(surname.length() >= 3)) { %>
-								<li>Surname must be at least 3 characters long</li>
-							<% } 
-							if (!(username.length() >= 5)) { %>
-								<li>Username must be at least 5 characters long</li>
-							<% } 
-							if (!(password.length() >= 6)) { %>
-								<li>Password must be at least 6 characters long</li>
-							<% }
-							if (!(confirm.equals(password))) { %>
-								<li>Password and confirm do not match</li>
-							<% }
-							if (terms == null) { %>
-								<li>You must agree to terms and conditions</li>
-							<% } %>
-					 	</ol>
-					</div>
-					<div>
-						<a class="btn btn-primary" href="register_ex3_8200129.jsp" role="button"><i class="glyphicon glyphicon-chevron-left"></i> Back to the form</a>			
-					</div>		
-    			<% 
-    			} else {
-					try {
-						EmployeeDAO dao = new EmployeeDAO();
-						dao.register(new Employee(name, surname, email, username, password)); %>
-						<div class="page-header">
-							<h1>Registration done!</h1>
-						</div>
-		
-						<div>
-							<h5><strong>Name: </strong><%=name%> </h5>
-							<h5><strong>Surname: </strong><%=surname%> </h5>
-							<h5><strong>Email: </strong><%=email%> </h5>
-							<h5><strong>Username: </strong><%=username%> </h5>
-						</div>
-		
-						<div>
-							<a class="btn btn-primary" href="login_ex3_8200129.jsp" role="button"><i class="glyphicon glyphicon-log-in"></i> Go to login page</a>			
-						</div>
-					<%
-					} catch (Exception e) {
-						request.setAttribute("message", e.getMessage());
-					%>
-					<div class="page-header">
-						<h1>Registration has errors :/</h1>
-					</div>							
-                	<div class="alert alert-danger text-center" role="alert"><%=(String)request.getAttribute("message") %></div>
-					<div>
-						<a class="btn btn-primary" href="register_ex3_8200129.jsp" role="button"><i class="glyphicon glyphicon-chevron-left"></i> Back to the form</a>			
-					</div>
-            		<%
-					}
-				}
-    			%>  
-            </div><!-- /.container -->
+        if (!(name.length() >= 3) || !(surname.length() >= 3) || !(username.length() >= 4) || !(password.length() >= 3) || (!(confirm.equals(password))) || (terms == null)) {
+
+          if (!(name.length() >= 3)) {
+            request.setAttribute("error_message", "Name must be at least 3 characters long");
+          } 
+          if (!(surname.length() >= 3)) { 
+            request.setAttribute("error_message", "Surname must be at least 3 characters long");
+          } 
+          if (!(username.length() >= 5)) {
+            request.setAttribute("error_message", "Username must be at least 4 characters long");
+          } 
+          if (!(password.length() >= 6)) {
+            request.setAttribute("error_message", "Password must be at least 3 characters long");
+          }
+          if (!(confirm.equals(password))) {
+            request.setAttribute("error_message", "Password and confirm do not match");
+          }
+          if (terms == null) {
+            request.setAttribute("error_message", "You must agree to terms and conditions");
+          } %>
+          <jsp:forward page="sign-up-users.jsp"/>
+          <%
+        } else {
+          try {
+            EmployeeDAO dao = new EmployeeDAO();
+            Employee emp = new Employee ((dao.getEmployees().size() +1), name, surname, email, "delivery", username, password);
+            dao.register(emp);
+            request.setAttribute("message", emp.getUsername() + " registered successfully.");
+          } catch (Exception e) {
+            request.setAttribute("error_message", e.getMessage());
+          } finally {
+
+            %>
+            <jsp:forward page="sign-up-users.jsp"/>
+            <%
+
+       
+          }
+        }
+
+        %>  
+          </div>
+          <!-- /container -->
 			
 		</main>
 		

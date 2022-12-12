@@ -38,31 +38,50 @@ if (session.getAttribute("adminObj") == null) {
                 <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
                   <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Sign Up</h4>
                   <div class="row mt-3">
-                  </div>
+                  </div>      
                 </div>
                 <div class="card-body">
-                  <form role="form">
+                  <% if(request.getAttribute("error_message") != null) { %>		
+                    <div class="alert alert-danger text-center" role="alert" style="color:#fff"><%=(String)request.getAttribute("error_message") %></div>
+                  <% } %>
+  
+                  <% if(request.getAttribute("message") != null) { %>		
+                    <div class="alert alert-success text-center" role="alert" style="color:#fff"><%=(String)request.getAttribute("message") %></div>
+                  <% } %>
+                  <form role="form" method="POST" action="sign-up-controller.jsp">
                     <p class="mb-0">Enter your email and password to register</p>
                     <div class="input-group input-group-outline mb-3">
-                      <label class="form-label">Name</label>
-                      <input type="text" class="form-control">
+                      <label class="form-label">First Name</label>
+                      <input type="text" name="firstname" class="form-control">
+                    </div>
+                    <div class="input-group input-group-outline mb-3">
+                      <label class="form-label">Last Name</label>
+                      <input type="text" name="lastname" class="form-control">
                     </div>
                     <div class="input-group input-group-outline mb-3">
                       <label class="form-label">Email</label>
-                      <input type="email" class="form-control">
+                      <input type="email" name="email" class="form-control">
+                    </div>
+                    <div class="input-group input-group-outline mb-3">
+                      <label class="form-label">Username</label>
+                      <input type="text" name="username" class="form-control">
                     </div>
                     <div class="input-group input-group-outline mb-3">
                       <label class="form-label">Password</label>
-                      <input type="password" class="form-control">
+                      <input type="password" name="password" class="form-control">
+                    </div>
+                    <div class="input-group input-group-outline mb-3">
+                      <label class="form-label">Confirm Password</label>
+                      <input type="password" name="confirm" class="form-control">
                     </div>
                     <div class="form-check form-check-info text-start ps-0">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" unchecked>
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="terms" unchecked>
                       <label class="form-check-label" for="flexCheckDefault">
                         I agree with the <a href="javascript:;" class="text-danger font-weight-bolder">Terms and Conditions</a>
                       </label>
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign Up</button>
+                      <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign Up</button>
                     </div>
                   </form>
                 </div>
