@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- <%@ page import="fyw.*, java.util.*" %> -->
 <%@ page errorPage="error.jsp"%>
 
 <%
@@ -171,129 +172,49 @@ if (session.getAttribute("adminObj") == null) {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">6</h6>
-                          </div>
+
+<%
+                    OrdersDAO ordao = new OrdersDAO();
+                    List <Orders> ordersPending = ordao.findOrdersByStatus("pending");
+                    for (Orders orders_pending: ordersPending){
+                      String address [] = orders_pending.getAddress().split(","); 
+%>
+                  <tr>
+                    <td>
+                      <div class="d-flex px-2 py-1">
+                        <div class="d-flex flex-column justify-content-center">
+                          <h6 class="mb-0 text-sm"><%=orders_pending.getId() %></h6>
                         </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">Steve Doulias</p>
-                          </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex px-2 py-1">
+                        <div class="d-flex flex-column justify-content-center">
+                          <p class="text-xs font-weight-bold mb-0"><%=orders_pending.getCustomerName() %></p>
                         </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Kyprou 35</p>
-                        <p class="text-xs text-secondary mb-0">Agia Paraskeyi</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <h6 class="mb-0 text-sm">6845316845</h6>
-                      </td>
-                      <td class="align-middle text-center">
-                        <p class="text-xs font-weight-bold mb-0">14'</p>
-                        <p class="text-xs text-secondary mb-0">Estimated Time: 35'</p>
-                      </td>
-                      <td class="align-middle text-center">
-                        <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
-                            class="material-icons text-lg position-relative me-1">picture_as_pdf</i> PDF</button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm"> 5 </h6>
-                          </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">Markos Zuckerberg</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Xrysanthemwn 13</p>
-                        <p class="text-xs text-secondary mb-0">Halandri</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <h6 class="mb-0 text-sm">6948544846</h6>
-                      </td>
-                      <td class="align-middle text-center">
-                        <p class="text-xs font-weight-bold mb-0">19'</p>
-                        <p class="text-xs text-secondary mb-0">Estimated Time: 35'</p>
-                      </td>
-                      <td class="align-middle text-center">
-                        <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
-                            class="material-icons text-lg position-relative me-1">picture_as_pdf</i> PDF</button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">4</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">Jeff Mpezos</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Aitolias 12</p>
-                        <p class="text-xs text-secondary mb-0">Gerakas</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <h6 class="mb-0 text-sm">684535845</h6>
-                      </td>
-                      <td class="align-middle text-center">
-                        <p class="text-xs font-weight-bold mb-0">21'</p>
-                        <p class="text-xs text-secondary mb-0">Estimated Time: 35'</p>
-                      </td>
-                      <td class="align-middle text-center">
-                        <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
-                            class="material-icons text-lg position-relative me-1">picture_as_pdf</i> PDF</button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm" >3</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">Basilis Gates</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Aigaiou pelagous 30</p>
-                        <p class="text-xs text-secondary mb-0">Agia Paraskeyi</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <h6 class="mb-0 text-sm">635431321</h6>
-                      </td>
-                      <td class="align-middle text-center">
-                        <p class="text-xs font-weight-bold mb-0">23'</p>
-                        <p class="text-xs text-secondary mb-0">Estimated Time: 35'</p>
-                      </td>
-                      <td class="align-middle text-center">
-                        <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
-                            class="material-icons text-lg position-relative me-1">picture_as_pdf</i> PDF</button>
-                      </td>
-                    </tr>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0"><%= address[0] %></p>
+                      <p class="text-xs text-secondary mb-0"><%= address[1] %></p>
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                      <h6 class="mb-0 text-sm">654654654654</h6>
+                    </td>
+                    <td class="align-middle text-center">
+                      <p class="text-xs font-weight-bold mb-0">14'</p>
+                      <p class="text-xs text-secondary mb-0">Estimated Time: <%=orders_pending.getEstimatedTime() %></p>
+                    </td>
+                    <td class="align-middle text-center">
+                      <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
+                          class="material-icons text-lg position-relative me-1">picture_as_pdf</i> PDF</button>
+                    </td>
+                  </tr>
+<%
+                  }
+%>      
+
+
                   </tbody>
                 </table>
               </div>
@@ -430,73 +351,95 @@ if (session.getAttribute("adminObj") == null) {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">2</h6>
-                          </div>
+<%
+                    List <Orders> ordersDispached = ordao.findOrdersByStatus("dispached");
+                    for (Orders orders_dispached: ordersDispached){
+                      String addressDispached [] = orders_dispached.getAddress().split(","); 
+%>
+                  <tr>
+                    <td>
+                      <div class="d-flex px-2 py-1">
+                        <div class="d-flex flex-column justify-content-center">
+                          <h6 class="mb-0 text-sm"><%=orders_dispached.getId() %></h6>
                         </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">Yanis Antetokounmpo</p>
-                          </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex px-2 py-1">
+                        <div class="d-flex flex-column justify-content-center">
+                          <p class="text-xs font-weight-bold mb-0"><%=orders_dispached.getCustomerName() %></p>
                         </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Kyprou 35</p>
-                        <p class="text-xs text-secondary mb-0">Agia Paraskeyi</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <h6 class="mb-0 text-sm">6845316845</h6>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                      </td>
-                      <td class="align-middle text-center">
-                        <p class="text-xs font-weight-bold mb-0">32'</p>
-                        <p class="text-xs text-secondary mb-0">Estimated Time: 35'</p>
-                      </td>
-                      <td class="align-middle text-center">
-                        <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
-                            class="material-icons text-lg position-relative me-1">picture_as_pdf</i> PDF</button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm"> 1 </h6>
-                          </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">Mixalhs Jordan</p>
-                          </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0"><%= addressDispached[0] %></p>
+                      <p class="text-xs text-secondary mb-0"><%= addressDispached[1] %></p>
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                      <h6 class="mb-0 text-sm">654654654654</h6>
+                    </td>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <h6 class="mb-0 text-sm"> DRIVER </h6>
+                  </td>
+                    <td class="align-middle text-center">
+                      <p class="text-xs font-weight-bold mb-0">14'</p>
+                      <p class="text-xs text-secondary mb-0">Estimated Time: <%=orders_dispached.getEstimatedTime() %></p>
+                    </td>
+                    <td class="align-middle text-center">
+                      <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
+                          class="material-icons text-lg position-relative me-1">picture_as_pdf</i> PDF</button>
+                    </td>
+                  </tr>
+<%
+                  }
+%>      
+<%
+                    List <Orders> ordersDelivered = ordao.findOrdersByStatus("delivered");
+                    for (Orders orders_delivered: ordersDelivered){
+                      String addressDispached [] = orders_delivered.getAddress().split(","); 
+%>
+                  <tr>
+                    <td>
+                      <div class="d-flex px-2 py-1">
+                        <div class="d-flex flex-column justify-content-center">
+                          <h6 class="mb-0 text-sm"><%=orders_delivered.getId() %></h6>
                         </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Xrysanthemwn 13</p>
-                        <p class="text-xs text-secondary mb-0">Halandri</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <h6 class="mb-0 text-sm">6948544846</h6>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <h6 class="mb-0 text-sm">Richard Gran</h6>
-                      </td>
-                      <td class="align-middle text-center">
-                        <p class="text-xs font-weight-bold mb-0">31'<span class="text-success text-sm font-weight-bolder"> (delivered)</span></p>
-                        <p class="text-xs text-secondary mb-0">Estimated Time: 35'</p>
-                      </td>
-                      <td class="align-middle text-center">
-                        <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
-                            class="material-icons text-lg position-relative me-1">picture_as_pdf</i> PDF</button>
-                      </td>
-                    </tr>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex px-2 py-1">
+                        <div class="d-flex flex-column justify-content-center">
+                          <p class="text-xs font-weight-bold mb-0"><%=orders_delivered.getCustomerName() %></p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0"><%= addressDispached[0] %></p>
+                      <p class="text-xs text-secondary mb-0"><%= addressDispached[1] %></p>
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                      <h6 class="mb-0 text-sm">654654654654</h6>
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                      <h6 class="mb-0 text-sm"> DRIVER </h6>
+                    </td>
+                    <td class="align-middle text-center">
+                      <p class="text-xs font-weight-bold mb-0">14'</p>
+                      <p class="text-xs text-secondary mb-0">Estimated Time: <%=orders_delivered.getEstimatedTime() %></p>
+                    </td>
+                    <td class="align-middle text-center">
+                      <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
+                          class="material-icons text-lg position-relative me-1">picture_as_pdf</i> PDF</button>
+                    </td>
+                  </tr>
+<%
+                  }
+%>      
+
+
+
+
                   </tbody>
                 </table>
               </div>
