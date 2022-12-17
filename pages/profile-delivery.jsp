@@ -144,10 +144,6 @@ if (session.getAttribute("deliveryObj") == null) {
             </div>
         </nav>
         <!-- End Navbar -->
-
-
-
-
         <div class="container-fluid px-2 px-md-4">
             <div class="page-header min-height-300 border-radius-xl mt-4"
                 style="background-image: url('https://media.istockphoto.com/id/1307965024/photo/a-delivery-biker-looking-over-their-shoulder.jpg?b=1&s=170667a&w=0&k=20&c=vndCBGN8ukXdDYtbDl1ixXzkS-K5NxaZlGbyul9NJX8=');">
@@ -221,41 +217,8 @@ if (session.getAttribute("deliveryObj") == null) {
                       </div>
                     </div>
                   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <footer class="footer py-4  ">
             <div class="container-fluid">
                 <div class="row align-items-center justify-content-lg-between">

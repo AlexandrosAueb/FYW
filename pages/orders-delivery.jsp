@@ -1,13 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="fyw.*, java.util.*" %>
 <%@ page errorPage="error.jsp"%>
 
 <%
+
+
+OrdersDAO ordao = new OrdersDAO();
+
 if (session.getAttribute("deliveryObj") == null) {
 	request.setAttribute("message", "You are not authorized to access this resource. Please login.");
+
+//if ((request.getParameter("status").equals("delivered"))){
+//    ordao.changeStatus(Integer.parseInt(request.getParameter("order")),request.getParameter("status"));
+//}
 %>
   <jsp:forward page="../pages/sign-in.jsp"/>
 <%    
 }
+Employee user = (Employee) session.getAttribute("deliveryObj");
 %>
 
 <!DOCTYPE html>
@@ -193,78 +203,55 @@ if (session.getAttribute("deliveryObj") == null) {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-4 py-1">
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm"> 6</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <p class="text-xs font-weight-bold mb-0">Steve Doulias</p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">Kyprou 35</p>
-                                                <p class="text-xs text-secondary mb-0">Agia Paraskeyi</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <h6 class="mb-0 text-sm">6845316845</h6>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <p class="text-xs font-weight-bold mb-0"> <span
-                                                        class="text-warning text-sm font-weight-bolder">6'</span></p>
-                                                <p class="text-xs text-secondary mb-0">Estimated Time: 35'</p>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
-                                                        class="material-icons text-lg position-relative me-1">picture_as_pdf</i>
-                                                    PDF</button>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Delivered</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-4 py-1">
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">3</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <p class="text-xs font-weight-bold mb-0">Basilis Gates</p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">Aigaiou pelagous 30</p>
-                                                <p class="text-xs text-secondary mb-0">Agia Paraskeyi</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <h6 class="mb-0 text-sm">635431321</h6>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <p class="text-xs font-weight-bold mb-0"><span
-                                                        class="text-danger text-sm font-weight-bolder">2'</span></p>
-                                                <p class="text-xs text-secondary mb-0">Estimated Time: 35'</p>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
-                                                        class="material-icons text-lg position-relative me-1">picture_as_pdf</i>
-                                                    PDF</button>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Delivered</span>
-                                            </td>
-                                        </tr>
+                                        
+                                        <%
+                                        List <Orders> ordersDispached = ordao.findOrdersByDeliveryMan( user.getId()); 
+                                        for (Orders orders_dispached: ordersDispached){
+                                            String address [] = orders_dispached.getAddress().split(",");
+                                            if (orders_dispached.getStatus().equals("dispached")){
+                                        %>
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="d-flex px-4 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                                <h6 class="mb-0 text-sm"> <%=orders_dispached.getId() %> </h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                                <p class="text-xs font-weight-bold mb-0"><%=orders_dispached.getCustomerName() %></p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p class="text-xs font-weight-bold mb-0"><%= address[0] %></p>
+                                                        <p class="text-xs text-secondary mb-0"><%= address[1] %></p>
+                                                    </td>
+                                                    <td class="align-middle text-center text-sm">
+                                                        <h6 class="mb-0 text-sm">6845316845</h6>
+                                                    </td>
+                                                    <td class="align-middle text-center">
+                                                        <p class="text-xs font-weight-bold mb-0"> <span
+                                                                class="text-warning text-sm font-weight-bolder">6'</span></p>
+                                                        <p class="text-xs text-secondary mb-0">Estimated Time: <%=orders_dispached.getEstimatedTime() %> </p>
+                                                    </td>
+                                                    <td class="align-middle text-center">
+                                                        <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
+                                                                class="material-icons text-lg position-relative me-1">picture_as_pdf</i>
+                                                            PDF</button>
+                                                    </td>
+                                                    <td class="align-middle text-center text-sm">
+                                                        <a class="badge badge-sm bg-gradient-success" href="http://ism.dmst.aueb.gr/ismgroup44/FYW/pages/orders-delivery.jsp?order=<%=orders_dispached.getId()%>&status=dispached" >Delivered</a>
+                                                    </td>
+                                                </tr>
+
+                                        <%
+                                            }
+                                        }
+                                        %>
                                     </tbody>
                                 </table>
                             </div>
@@ -315,43 +302,54 @@ if (session.getAttribute("deliveryObj") == null) {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <td>
-                                                    <div class="d-flex px-4 py-1">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm"> 1 </h6>
-                                                        </div>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex px-2 py-1">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <p class="text-xs font-weight-bold mb-0">Mixalhs Jordan
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <p class="text-xs font-weight-bold mb-0">Xrysanthemwn 13</p>
-                                                    <p class="text-xs text-secondary mb-0">Halandri</p>
-                                                </td>
-                                                <td class="align-middle text-center text-sm">
-                                                    <h6 class="mb-0 text-sm">6948544846</h6>
-                                                </td>
-
-                                                <td class="align-middle text-center">
-                                                    <p class="text-xs font-weight-bold mb-0"><span
-                                                            class="text-success text-sm font-weight-bolder">
-                                                            DELIVERED</span></p>
-                                                    <p class="text-xs text-secondary mb-0">Delivered at 31' (35')</p>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
-                                                            class="material-icons text-lg position-relative me-1">picture_as_pdf</i>
-                                                        PDF</button>
-                                                </td>
-                                                <td class="align-middle text-center text-sm">
-                                                    <span class="badge badge-sm bg-gradient-danger">Call Back</span>
-                                                </td>
-                                                </tr>
+                                                <%
+                                                List <Orders> ordersDelivered = ordao.findOrdersByDeliveryMan( user.getId()); 
+                                                for (Orders orders_delivered: ordersDelivered){
+                                                    String address2 [] = orders_delivered.getAddress().split(",");
+                                                    if (orders_delivered.getStatus().equals("delivered")){
+                                                %>
+        
+                                                        <tr>
+                                                            <td>
+                                                                <div class="d-flex px-4 py-1">
+                                                                    <div class="d-flex flex-column justify-content-center">
+                                                                        <h6 class="mb-0 text-sm"> <%=orders_delivered.getId() %> </h6>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="d-flex px-2 py-1">
+                                                                    <div class="d-flex flex-column justify-content-center">
+                                                                        <p class="text-xs font-weight-bold mb-0"><%=orders_delivered.getCustomerName() %></p>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <p class="text-xs font-weight-bold mb-0"><%= address2[0] %></p>
+                                                                <p class="text-xs text-secondary mb-0"><%= address2[1] %></p>
+                                                            </td>
+                                                            <td class="align-middle text-center text-sm">
+                                                                <h6 class="mb-0 text-sm">6845316845</h6>
+                                                            </td>
+                                                            <td class="align-middle text-center">
+                                                                <p class="text-xs font-weight-bold mb-0"> <span
+                                                                        class="text-warning text-sm font-weight-bolder">6'</span></p>
+                                                                <p class="text-xs text-secondary mb-0">Estimated Time: <%=orders_delivered.getEstimatedTime() %> </p>
+                                                            </td>
+                                                            <td class="align-middle text-center">
+                                                                <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
+                                                                        class="material-icons text-lg position-relative me-1">picture_as_pdf</i>
+                                                                    PDF</button>
+                                                            </td>
+                                                            <td class="align-middle text-center text-sm">
+                                                                <a class="badge badge-sm bg-gradient-danger" href="http://ism.dmst.aueb.gr/ismgroup44/FYW/pages/orders-delivery.jsp?order=<%=orders_delivered.getId()%>&status=delivered" >Call Back</a>
+                                                            </td>
+                                                        </tr>
+        
+                                                <%
+                                                    }
+                                                }
+                                                %>
                                             </tbody>
                                         </table>
                                     </div>
@@ -412,6 +410,7 @@ if (session.getAttribute("deliveryObj") == null) {
     <script src="../assets/js/core/bootstrap.min.js"></script>
     <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {

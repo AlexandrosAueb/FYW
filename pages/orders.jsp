@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!-- <%@ page import="fyw.*, java.util.*" %> -->
+<%@ page import="fyw.*, java.util.*" %>
 <%@ page errorPage="error.jsp"%>
 
 <%
@@ -353,8 +353,11 @@ if (session.getAttribute("adminObj") == null) {
                   <tbody>
 <%
                     List <Orders> ordersDispached = ordao.findOrdersByStatus("dispached");
+                    EmployeeDAO emp = new EmployeeDAO();
                     for (Orders orders_dispached: ordersDispached){
-                      String addressDispached [] = orders_dispached.getAddress().split(","); 
+                      String addressDispached [] = orders_dispached.getAddress().split(",");
+                      Employee employee = emp.findEmployeeByID(orders_dispached.getEmployeeId());
+
 %>
                   <tr>
                     <td>
@@ -380,7 +383,7 @@ if (session.getAttribute("adminObj") == null) {
                     </td>
                   </td>
                   <td class="align-middle text-center text-sm">
-                    <h6 class="mb-0 text-sm"> DRIVER </h6>
+                    <h6 class="mb-0 text-sm"> <%= employee.getFirstname()%> <%= employee.getLastname()%> </h6>
                   </td>
                     <td class="align-middle text-center">
                       <p class="text-xs font-weight-bold mb-0">14'</p>
@@ -397,7 +400,8 @@ if (session.getAttribute("adminObj") == null) {
 <%
                     List <Orders> ordersDelivered = ordao.findOrdersByStatus("delivered");
                     for (Orders orders_delivered: ordersDelivered){
-                      String addressDispached [] = orders_delivered.getAddress().split(","); 
+                      String addressDelivered [] = orders_delivered.getAddress().split(",");
+                      Employee employee = emp.findEmployeeByID(orders_delivered.getEmployeeId());
 %>
                   <tr>
                     <td>
@@ -415,17 +419,17 @@ if (session.getAttribute("adminObj") == null) {
                       </div>
                     </td>
                     <td>
-                      <p class="text-xs font-weight-bold mb-0"><%= addressDispached[0] %></p>
-                      <p class="text-xs text-secondary mb-0"><%= addressDispached[1] %></p>
+                      <p class="text-xs font-weight-bold mb-0"><%= addressDelivered[0] %></p>
+                      <p class="text-xs text-secondary mb-0"><%= addressDelivered[1] %></p>
                     </td>
                     <td class="align-middle text-center text-sm">
                       <h6 class="mb-0 text-sm">654654654654</h6>
                     </td>
                     <td class="align-middle text-center text-sm">
-                      <h6 class="mb-0 text-sm"> DRIVER </h6>
+                      <h6 class="mb-0 text-sm"> <%= employee.getFirstname()%> <%= employee.getLastname()%> </h6>
                     </td>
                     <td class="align-middle text-center">
-                      <p class="text-xs font-weight-bold mb-0">14'</p>
+                      <p class="text-xs font-weight-bold mb-0">14' <span class="text-success text-sm font-weight-bolder">(DELIVERED) </span></p>
                       <p class="text-xs text-secondary mb-0">Estimated Time: <%=orders_delivered.getEstimatedTime() %></p>
                     </td>
                     <td class="align-middle text-center">
@@ -436,10 +440,6 @@ if (session.getAttribute("adminObj") == null) {
 <%
                   }
 %>      
-
-
-
-
                   </tbody>
                 </table>
               </div>
@@ -448,8 +448,6 @@ if (session.getAttribute("adminObj") == null) {
         </div>
       </div>
     </div>
-
-
       <footer class="footer py-4  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
